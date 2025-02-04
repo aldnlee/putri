@@ -3,9 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Animated Hello SVG</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #ff837b;
+        }
+        #container {
+            width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-53%, -60%);
+        }
+        #container.fin .path-1, 
+        #container.fin .path-2, 
+        #container.fin .path-3 {
+            stroke-dashoffset: 0;
+        }
+        #container.fin .path-4 {
+            stroke-width: 18px;
+        }
+        .path {
+            fill: none;
+            stroke: #362f3c;
+            stroke-width: 18px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .path-1 {
+            stroke-dasharray: 1850 2000;
+            stroke-dashoffset: 1851;
+            transition: 5s linear;
+        }
+        .path-2 {
+            stroke-dasharray: 260 1000;
+            stroke-dashoffset: 261;
+            transition: 1.2s linear 5.2s;
+        }
+        .path-3 {
+            stroke-dasharray: 100 1000;
+            stroke-dashoffset: 101;
+            transition: 1s linear 6.5s;
+        }
+        .path-4 {
+            stroke-width: 0;
+            transition: 0.1s linear 7.5s;
+        }
+    .button {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: auto;
+    margin-top: 500px;
+    color: rgb(255, 255, 255);
+    border-radius: 200px;
+    width: 330px;
+    height: 50px;
+    background-color: rgb(211, 24, 70);
+}
+    </style>
 </head>
 <body>
+    <div>
+        <a class="button" href="flower.html">Klik untuk melihat bunga Sayang &#128522</a>
+    </div>
     <div id="container">
         <svg id="hello-svg" data-name="hello" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 582 197">
             <title>Hello</title>
@@ -15,57 +80,12 @@
             <line class="path path-4" x1="561" y1="181.67" x2="561" y2="181.67"/>
         </svg>
     </div>
-   <style>
-    body {
-  background: #ff837b;
-}
-#container {
-  width: 600px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-53%, -60%);
-  &.fin {
-      .path-1, .path-2, .path-3 {
-          stroke-dashoffset: 0;
-      }
-      .path-4 {
-          stroke-width: 18px;
-      }
-  }
-}
-.path {
-  fill: none;
-  stroke: #362f3c;
-  stroke-width: 18px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.path-1 {
-stroke-dasharray: 1850 2000;
-stroke-dashoffset: 1851;
-transition: 5s linear;
-}
-.path-2 {
-stroke-dasharray: 260 1000;
-stroke-dashoffset: 261;
-transition: 1.2s linear 5.2s;
-}
-.path-3 {
-stroke-dasharray: 100 1000;
-stroke-dashoffset: 101;
-transition: 1s linear 6.5s;
-}
-.path-4 {
-stroke-width: 0;
-transition: 0.1s linear 7.5s;
-}
-</style>
-</body> 
-<script>$(function() {
-    function animationStart() {
-        $('#container').addClass('fin');
-    }
-    setTimeout(animationStart, 250);
-});</script>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('#container').addClass('fin');
+            }, 250);
+        });
+    </script>
+</body>
 </html>
